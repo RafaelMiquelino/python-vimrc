@@ -25,7 +25,7 @@ You can install it by using CLI just have next command executed:
 
 .. code-block:: bash
 
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ets-labs/python-vimrc/master/setup.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/RafaelMiquelino/python-vimrc/master/setup.sh)"
 
 During execution of init script do not worry about error messages. When it
 occurs just press enter and wait till all plugins are installed.
@@ -48,6 +48,32 @@ this:
 
   ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
+**Note:** Installation for Ubuntu 16.04 and later looks like 
+this:
+
+      sudo apt install build-essential cmake python3-dev
+
+Compiling YCM **with** semantic support for C-family languages:
+
+    cd ~/.vim/bundle/YouCompleteMe
+    python3 install.py --clang-completer
+
+Compiling YCM **without** semantic support for C-family languages:
+
+    cd ~/.vim/bundle/YouCompleteMe
+    python3 install.py
+
+If instalation fails on compile, try to creat swap space: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
+
+tagbar
+--------------
+
+Need to install exuberant-ctags to work:
+
+**Note:** Installation for Ubuntu 16.04 and later looks like 
+this:
+
+  sudo apt-get install exuberant-ctags
 
 Key bindings
 ============
