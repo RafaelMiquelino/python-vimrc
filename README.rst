@@ -41,15 +41,15 @@ instructions could be found on plugin page:
 `Valloric/YouCompleteMe <https://github.com/Valloric/YouCompleteMe#installation>`_.
 
 
-**Note:** Installation for Mac OS with support of clang compiler looks like 
-this:
+Installation for Mac:
+============
 
 .. code-block:: bash
 
   ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
-**Note:** Installation for Ubuntu 16.04 and later looks like 
-this:
+Installation for Ubuntu:
+============
 
 .. code-block:: bash
 
@@ -72,7 +72,7 @@ Compiling YCM **without** semantic support for C-family languages:
 If instalation fails on compile, try to creat swap space: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
 
 tagbar
---------------
+------------
 
 Need to install exuberant-ctags to work:
 
@@ -84,7 +84,7 @@ this:
   sudo apt-get install exuberant-ctags
 
 Key bindings
-============
+------------
 
 This configuration tends to use standard VIM and installed plugins key 
 bindings, but there are some custom key bindings as well:
