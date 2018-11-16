@@ -25,8 +25,9 @@ call vundle#begin()
 
     "-------------------=== Code/Project navigation ===-------------
     Plugin 'scrooloose/nerdtree'                " Project and file navigation
-    Plugin 'majutsushi/tagbar'                  " Class/module browser
+    Plugin 'majutsushi/tagbar'                  " Class/module browser -> Need to install exuberant-ctags: sudo apt-get install exuberant-ctags
     Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
+    Plugin 'tmhedberg/SimpylFold'               " No-BS Python code folding for Vim
 
     "-------------------=== Other ===-------------------------------
     Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
@@ -47,7 +48,7 @@ call vundle#begin()
     Plugin 'tpope/vim-commentary'               " Comment stuff out
     Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
     Plugin 'Rykka/riv.vim'                      " ReStructuredText plugin
-    Plugin 'Valloric/YouCompleteMe'             " Autocomplete plugin
+    Plugin 'Valloric/YouCompleteMe'             " Autocomplete plugin ->    Need to install https://github.com/Valloric/YouCompleteMe#installation. If instalation fails on compile, try to creat swap space: https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
 
     "-------------------=== Python  ===-----------------------------
     Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
@@ -113,6 +114,13 @@ nmap <silent> <leader>q :SyntasticCheck # <CR> :bp <BAR> bd #<CR>
 set incsearch	                            " incremental search
 set hlsearch	                            " highlight search results
 
+"" Enable folding
+"====================================================
+set foldmethod=indent
+set foldlevel=99
+let g:SimpylFold_docstring_preview=1
+
+
 "=====================================================
 "" AirLine settings
 "=====================================================
@@ -123,17 +131,19 @@ let g:airline_powerline_fonts=1
 
 "=====================================================
 "" TagBar settings
+"Need to install exuberant-ctags: sudo apt-get install exuberant-ctags
 "=====================================================
-let g:tagbar_autofocus=0
+let g:tagbar_autofocus=1
 let g:tagbar_width=42
-autocmd BufEnter *.py :call tagbar#autoopen(0)
-autocmd BufWinLeave *.py :TagbarClose
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
 
 "=====================================================
 "" NERDTree settings
 "=====================================================
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
 let NERDTreeWinSize=40
+let NERDTreeShowHidden=1
 autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
 nmap " :NERDTreeToggle<CR>
 
@@ -152,8 +162,8 @@ let g:riv_disable_folding=1
 "=====================================================
 
 " python executables for different plugins
-let g:pymode_python='python'
-let g:syntastic_python_python_exec='python'
+let g:pymode_python='python3'
+let g:syntastic_python_python_exec='python3'
 
 " rope
 let g:pymode_rope=0
