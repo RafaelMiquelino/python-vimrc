@@ -51,14 +51,20 @@ this:
 **Note:** Installation for Ubuntu 16.04 and later looks like 
 this:
 
+.. code-block:: bash
+
       sudo apt install build-essential cmake python3-dev
 
 Compiling YCM **with** semantic support for C-family languages:
+
+.. code-block:: bash
 
     cd ~/.vim/bundle/YouCompleteMe
     python3 install.py --clang-completer
 
 Compiling YCM **without** semantic support for C-family languages:
+
+.. code-block:: bash
 
     cd ~/.vim/bundle/YouCompleteMe
     python3 install.py
@@ -72,6 +78,8 @@ Need to install exuberant-ctags to work:
 
 **Note:** Installation for Ubuntu 16.04 and later looks like 
 this:
+
+.. code-block:: bash
 
   sudo apt-get install exuberant-ctags
 
